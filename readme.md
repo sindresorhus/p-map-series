@@ -25,12 +25,14 @@ const keywords = [
 
 let scores = [];
 
-const mapper = keyword => fetchScore(keyword).then(score => {
+const mapper = async keyword => {
+	const score = await fetchScore(keyword);
 	scores.push(score);
 	return {keyword, score};
 });
 
-pMapSeries(keywords, mapper).then(result => {
+(async () => {
+	const result = await pMapSeries(keywords, mapper);
 	console.log(result);
 	/*
 	[{
@@ -44,7 +46,7 @@ pMapSeries(keywords, mapper).then(result => {
 		score: 79}
 	]
 	*/
-});
+})();
 ```
 
 
