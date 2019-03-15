@@ -6,11 +6,10 @@ const pMapSeries = async (iterable, mapper) => {
 
 	for (const value of iterable) {
 		// eslint-disable-next-line no-await-in-loop
-		const mappedValue = await mapper(await value, index++);
-		result.push(mappedValue);
+		result.push(await mapper(await value, index++));
 	}
 
-	return Promise.all(result);
+	return result;
 };
 
 module.exports = pMapSeries;

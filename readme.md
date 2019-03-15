@@ -8,7 +8,7 @@ Useful as a side-effect mapper. Use [`p-map`](https://github.com/sindresorhus/p-
 ## Install
 
 ```
-$ npm install --save p-map-series
+$ npm install p-map-series
 ```
 
 
@@ -32,18 +32,21 @@ const mapper = async keyword => {
 });
 
 (async () => {
-	const result = await pMapSeries(keywords, mapper);
-	console.log(result);
+	console.log(await pMapSeries(keywords, mapper));
 	/*
-	[{
-		keyword: 'unicorn',
-		score: 99
-	}, {
-		keyword: 'rainbow',
-		score: 70
-	}, {
-		keyword: 'pony',
-		score: 79}
+	[
+		{
+			keyword: 'unicorn',
+			score: 99
+		},
+		{
+			keyword: 'rainbow',
+			score: 70
+		},
+		{
+			keyword: 'pony',
+			score: 79
+		}
 	]
 	*/
 })();
@@ -58,7 +61,7 @@ Returns a `Promise` that is fulfilled when all promises in `input` and ones retu
 
 #### input
 
-Type: `Iterable<Promise|any>`
+Type: `Iterable<Promise | unknown>`
 
 Mapped over serially in the `mapper` function.
 

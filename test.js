@@ -24,10 +24,17 @@ test('main', async t => {
 });
 
 test('rejection input rejects the promise', async t => {
-	await t.throwsAsync(pMapSeries([1, Promise.reject(fixtureError)], () => {}), fixtureError.message);
-	await t.throwsAsync(pMapSeries([1, Promise.resolve(2)], async () => {
-		throw fixtureError;
-	}), fixtureError.message);
+	await t.throwsAsync(
+		pMapSeries([1, Promise.reject(fixtureError)], () => {}),
+		fixtureError.message
+	);
+
+	await t.throwsAsync(
+		pMapSeries([1, Promise.resolve(2)], async () => {
+			throw fixtureError;
+		}),
+		fixtureError.message
+	);
 });
 
 test('handles empty iterable', async t => {
