@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import pMapSeries from '.';
+import {expectType} from 'tsd';
+import pMapSeries = require('.');
 
 const keywords = [Promise.resolve('foo'), 'rainbow', 'pony'];
 

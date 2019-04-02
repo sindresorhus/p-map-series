@@ -13,4 +13,5 @@ const pMapSeries = async (iterable, mapper) => {
 };
 
 module.exports = pMapSeries;
+// TODO: Remove this for the next major release
 module.exports.default = pMapSeries;
