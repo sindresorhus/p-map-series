@@ -1,4 +1,4 @@
-# p-map-series [![Build Status](https://travis-ci.org/sindresorhus/p-map-series.svg?branch=master)](https://travis-ci.org/sindresorhus/p-map-series)
+# p-map-series
 
 > Map over promises serially
 
