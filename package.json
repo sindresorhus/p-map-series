@@ -1,6 +1,6 @@
 {
 	"name": "p-map-series",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"description": "Map over promises serially",
 	"license": "MIT",
 	"repository": "sindresorhus/p-map-series",
