@@ -1,6 +1,4 @@
-'use strict';
-
-const pMapSeries = async (iterable, mapper) => {
+export default async function pMapSeries(iterable, mapper) {
 	const result = [];
 	let index = 0;
 
@@ -10,8 +8,4 @@ const pMapSeries = async (iterable, mapper) => {
 	}
 
 	return result;
-};
-
-module.exports = pMapSeries;
-// TODO: Remove this for the next major release
-module.exports.default = pMapSeries;
+}

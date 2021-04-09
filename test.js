@@ -1,7 +1,7 @@
 import test from 'ava';
 import delay from 'delay';
 import timeSpan from 'time-span';
-import pMapSeries from '.';
+import pMapSeries from './index.js';
 
 const fixtureError = new Error('fixture');
 
@@ -26,14 +26,14 @@ test('main', async t => {
 test('rejection input rejects the promise', async t => {
 	await t.throwsAsync(
 		pMapSeries([1, Promise.reject(fixtureError)], () => {}),
-		fixtureError.message
+		{message: fixtureError.message}
 	);
 
 	await t.throwsAsync(
 		pMapSeries([1, Promise.resolve(2)], async () => {
 			throw fixtureError;
 		}),
-		fixtureError.message
+		{message: fixtureError.message}
 	);
 });
 

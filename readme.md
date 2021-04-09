@@ -4,18 +4,16 @@
 
 Useful as a side-effect mapper. Use [`p-map`](https://github.com/sindresorhus/p-map) if you don't need side-effects, as it's concurrent.
 
-
 ## Install
 
 ```
 $ npm install p-map-series
 ```
 
-
 ## Usage
 
 ```js
-const pMapSeries = require('p-map-series');
+import pMapSeries from 'p-map-series';
 
 const keywords = [
 	getTopKeyword() //=> Promise
@@ -31,27 +29,24 @@ const mapper = async keyword => {
 	return {keyword, score};
 });
 
-(async () => {
-	console.log(await pMapSeries(keywords, mapper));
-	/*
-	[
-		{
-			keyword: 'unicorn',
-			score: 99
-		},
-		{
-			keyword: 'rainbow',
-			score: 70
-		},
-		{
-			keyword: 'pony',
-			score: 79
-		}
-	]
-	*/
-})();
+console.log(await pMapSeries(keywords, mapper));
+/*
+[
+	{
+		keyword: 'unicorn',
+		score: 99
+	},
+	{
+		keyword: 'rainbow',
+		score: 70
+	},
+	{
+		keyword: 'pony',
+		score: 79
+	}
+]
+*/
 ```
-
 
 ## API
 
@@ -71,14 +66,12 @@ Type: `Function`
 
 Expected to return a value. If it's a `Promise`, it's awaited before continuing with the next iteration.
 
-
 ## Related
 
 - [p-each-series](https://github.com/sindresorhus/p-each-series) - Iterate over promises serially
 - [p-reduce](https://github.com/sindresorhus/p-reduce) - Reduce a list of values using promises into a promise for a value
 - [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently
 - [More…](https://github.com/sindresorhus/promise-fun)
-
 
 ---
 
